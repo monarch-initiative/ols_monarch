@@ -1,0 +1,23 @@
+
+"@context":
+
+ontologies:
+
+  - id: upheno2
+    preferredPrefix: UPHENO
+    title: Unified Phenotype Ontology (uPheno2)
+    description: >
+      Application ontology combining ontologised versions of ABA structureGraphs with Uberon
+    uri: https://zenodo.org/record/3710690/files/upheno_all_with_relations.owl?download=1
+    base_uri:
+      - http://purl.obolibrary.org/obo/UPHENO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    hierarchical_property:
+      - http://purl.obolibrary.org/obo/BFO_0000050
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/opt/ols/ontologies/upheno2_c.owl
