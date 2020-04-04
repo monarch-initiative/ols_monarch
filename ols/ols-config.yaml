@@ -7,8 +7,8 @@ ontologies:
     preferredPrefix: UPHENO
     title: Unified Phenotype Ontology (uPheno2)
     description: >
-      Application ontology combining ontologised versions of ABA structureGraphs with Uberon
-    uri: https://zenodo.org/record/3710690/files/upheno_all_with_relations.owl?download=1
+      Cross-species integrated phenotype ontology
+    uri: https://ci.monarchinitiative.org/view/pipelines/job/upheno2/lastSuccessfulBuild/artifact/src/curation/upheno-release/all/upheno_all_with_relations.owl
     base_uri:
       - http://purl.obolibrary.org/obo/UPHENO_
     synonym_property:
@@ -20,4 +20,32 @@ ontologies:
 #    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
     reasoner: EL
     oboSlims: false
-    ontology_purl : file:/opt/ols/ontologies/upheno2_c.owl
+    ontology_purl : file:/opt/ols/ontologies/upheno2.owl
+  - id: upheno_patterns
+    preferredPrefix: UPHENO_PATTERN
+    title: Unified Phenotype Ontology Pattern Ontology
+    description: >
+      Ontology that contains all the currently defined uPheno patterns
+    uri: http://purl.obolibrary.org/obo/upheno/patterns/pattern.owl
+    base_uri:
+      - http://purl.obolibrary.org/obo/UPHENO_PATTERN_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    ontology_purl : file:/opt/ols/ontologies/upheno_patterns.owl
+  - id: geno
+    preferredPrefix: GENO
+    uri: http://purl.obolibrary.org/obo/geno.owl
+    base_uri:
+      - http://purl.obolibrary.org/obo/GENO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/opt/ols/ontologies/geno.owl

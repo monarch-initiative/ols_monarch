@@ -1,9 +1,9 @@
 ROBOT = robot
 URIBASE = http://purl.obolibrary.org/obo
-ONTS = upheno2 sepio
+ONTS = upheno2 geno upheno_patterns
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
 VERSION = "0.0.1" 
-IM=matentzn/monarch-old
+IM=matentzn/monarch-ols
 
 docker-build:
 	@docker build -t $(IM):$(VERSION) . \
@@ -16,15 +16,25 @@ docker-build-no-cache:
 docker-publish: docker-build
 	@docker push $(IM):$(VERSION) \
 	&& docker push $(IM):latest
+	
+docker-publish-no-build:
+	@docker push $(IM):$(VERSION) \
+	&& docker push $(IM):latest
+	
+docker-run:
+	@docker run -p 8080:8080 -t $(IM):$(VERSION)
 
-all: $(ONTFILES)
+# Download and pre-process the ontologies
+
+ontologies: $(ONTFILES)
 
 ontologies/%.owl: 
-	$(ROBOT) convert -I $(URIBASE)/uberon.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) convert -I $(URIBASE)/$*.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/upheno2.owl: 
-	$(ROBOT) convert -I $(URIBASE)/uberon.owl -o $@.tmp.owl && mv $@.tmp.owl $@
-
-
-
-
+	$(ROBOT) -vv merge -I https://ci.monarchinitiative.org/view/pipelines/job/upheno2/lastSuccessfulBuild/artifact/src/curation/upheno-release/all/upheno_all_with_relations.owl \
+	remove --term-file src/remove_terms.txt \
+	annotate --link-annotation http://purl.obolibrary.org/obo/IAO_0000700 http://purl.obolibrary.org/obo/UPHENO_0001001 -o $@.tmp.owl && mv $@.tmp.owl $@
+	
+ontologies/upheno_patterns.owl:
+	$(ROBOT) convert -I https://raw.githubusercontent.com/obophenotype/upheno/master/src/patterns/pattern.owl -o $@.tmp.owl && mv $@.tmp.owl $@
