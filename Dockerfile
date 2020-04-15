@@ -1,12 +1,12 @@
-FROM matentzn/ols:3.3.1
+FROM ebispot/ols:3.3.2
 
 ENV OLS_HOME /opt/ols
 ENV JAVA_OPTS "-Xmx5g"
 ENV SOLR_VERSION 5.5.3
 
-ADD ols/ols-config.yaml ${OLS_HOME}		
-ADD ols/logo-monarch.jpg ${OLS_HOME}		
-#ADD ols/obo-config.yaml ${OLS_HOME}		
+ADD ols/ols-config.yaml ${OLS_HOME}
+ADD ols/logo-monarch.jpg ${OLS_HOME}/img/
+#ADD ols/obo-config.yaml ${OLS_HOME}	
 
 RUN mkdir ${OLS_HOME}/ontologies
 ADD ontologies/*.owl ${OLS_HOME}/ontologies/
