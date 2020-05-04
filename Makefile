@@ -1,6 +1,6 @@
 ROBOT = robot
 URIBASE = http://purl.obolibrary.org/obo
-ONTS = upheno2 geno upheno_patterns
+ONTS = upheno2 geno upheno_patterns hp
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
 VERSION = "0.0.1" 
 IM=matentzn/monarch-ols
@@ -30,6 +30,9 @@ ontologies: $(ONTFILES)
 
 ontologies/%.owl: 
 	$(ROBOT) convert -I $(URIBASE)/$*.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+
+ontologies/hp.owl: 
+	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/hpo-pipeline-dev2/lastSuccessfulBuild/artifact/hp.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/upheno2.owl: 
 	$(ROBOT) -vv merge -I https://ci.monarchinitiative.org/view/pipelines/job/upheno2/lastSuccessfulBuild/artifact/src/curation/upheno-release/all/upheno_all_with_relations.owl \
