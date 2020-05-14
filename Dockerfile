@@ -1,7 +1,7 @@
 FROM ebispot/ols:3.3.4
 
 ENV OLS_HOME /opt/ols
-ENV JAVA_OPTS "-Xmx5g"
+ENV JAVA_OPTS "-Xmx50g"
 ENV SOLR_VERSION 5.5.3
 
 ADD ols/ols-config.yaml ${OLS_HOME}
