@@ -25,6 +25,8 @@ docker-run:
 	@docker run -p 8080:8080 -t $(IM):$(VERSION)
 
 # Download and pre-process the ontologies
+clean:
+	rm -rf ontologies/*
 
 ontologies: $(ONTFILES)
 
