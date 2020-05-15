@@ -1,4 +1,3 @@
-ROBOT = robot
 URIBASE = http://purl.obolibrary.org/obo
 ONTS = upheno2 geno upheno_patterns hp
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
