@@ -24,6 +24,7 @@ RUN wget $ROBOT_JAR -O /tools/robot.jar && \
 
 ## Prepare configuration files
 ADD ols/application.properties ${OLS_HOME}
+ADD src ${OLS_HOME}
 ADD Makefile ${OLS_HOME}
 
 ## Start MongoDB and 
