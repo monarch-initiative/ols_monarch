@@ -5,7 +5,6 @@ This repository contains the configuration of a bespoke Ontology Lookup Service 
 ### To launch local in [OLS](https://www.ebi.ac.uk/ols/index) via [Docker](https://www.docker.com/)
 
 ```
-sh run.sh make ontologies (or without run.sh if running in ODK container)
 make docker-build
 make docker-run
 ```
@@ -23,3 +22,9 @@ There are 2 relevant Jenkins jobs:
 
 As an aside:
 * [hpo-pipeline-dev2](https://ci.monarchinitiative.org/view/pipelines/job/hpo-pipeline-dev2/) is responsible for generating the HPO daily snapshot.
+
+
+## Adding an ontology:
+
+1. Add ontology metadata to ols/ols-config.yaml
+1. Add ontology id to Makefile
