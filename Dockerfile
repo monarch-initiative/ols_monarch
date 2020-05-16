@@ -36,7 +36,7 @@ RUN mongod --smallfiles --fork --logpath /var/log/mongodb.log \
 ## Preprocess ontologies
 RUN date
 RUN apk add --update make
-RUN cd ${OLS_HOME} && make ONTS=upheno_patterns ontologies -B
+RUN cd ${OLS_HOME} && make ontologies -B
 
 ## Start MongoDB and SOLR
 ## Build/update the indexes
