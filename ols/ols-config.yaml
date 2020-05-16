@@ -65,3 +65,20 @@ ontologies:
     reasoner: EL
     oboSlims: false
     ontology_purl : file:/opt/ols/ontologies/hp.owl
+    
+  - id: monarch
+    preferredPrefix: MO
+    title: Monarch Ontology (Development Snapshot)
+    uri: http://purl.obolibrary.org/obo/monarch.owl
+    description: >
+      Development snapshot of the Monarch Ontology, see: https://github.com/monarch-initiative/monarch-ontology.
+    base_uri:
+      - http://purl.obolibrary.org/obo/MO_
+    synonym_property:
+      - http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+    definition_property:
+      - http://purl.obolibrary.org/obo/IAO_0000115
+#    label_property:  http://www.w3.org/2004/02/skos/core#prefLabel
+    reasoner: EL
+    oboSlims: false
+    ontology_purl : file:/opt/ols/ontologies/monarch.owl
