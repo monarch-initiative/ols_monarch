@@ -37,7 +37,7 @@ ontologies/hp.owl:
 	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/hpo-pipeline-dev2/lastSuccessfulBuild/artifact/hp.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/cl.owl: 
-	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/cl-pipeline/lastSuccessfulBuild/artifact/cl.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/cl_pipeline/lastSuccessfulBuild/artifact/cl.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/chr.owl: 
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@
