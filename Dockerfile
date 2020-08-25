@@ -1,4 +1,4 @@
-FROM ebispot/ols:3.3.4
+FROM ebispot/ols:3.3.6
 
 ENV OLS_HOME /opt/ols
 ENV JAVA_OPTS "-Xmx50g"
