@@ -1,5 +1,5 @@
 URIBASE = http://purl.obolibrary.org/obo
-ONTS = upheno2 geno upheno_patterns hp chr cl
+ONTS = upheno2 geno upheno_patterns hp chr cl mondo_patterns
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
 VERSION = "0.0.3" 
@@ -49,6 +49,9 @@ ontologies/upheno2.owl:
 	
 ontologies/upheno_patterns.owl:
 	$(ROBOT) convert -I https://raw.githubusercontent.com/obophenotype/upheno/master/src/patterns/pattern.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+
+ontologies/mondo_patterns.owl:
+	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/mondo/master/src/patterns/pattern.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 #ontologies/monarch.owl:
 #	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/monarch-owl-pipeline/lastSuccessfulBuild/artifact/src/ontology/mo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
