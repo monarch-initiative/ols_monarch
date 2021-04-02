@@ -12,7 +12,7 @@ RUN mkdir ${OLS_HOME}/ontologies
 RUN mkdir /tools
 
 ###### ROBOT ######
-ENV ROBOTVERSION v1.6.0
+ENV ROBOTVERSION v1.8.0
 ARG ROBOT_JAR=https://github.com/ontodev/robot/releases/download/$ROBOTVERSION/robot.jar
 ENV ROBOT_JAR ${ROBOT_JAR}
 ENV ROBOT=/tools/robot

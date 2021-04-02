@@ -36,14 +36,17 @@ ontologies/%.owl:
 ontologies/hp.owl: 
 	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/hpo-pipeline-dev2/lastSuccessfulBuild/artifact/hp.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
-ontologies/cl.owl: 
-	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/cl_pipeline/lastSuccessfulBuild/artifact/cl.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+ontologies/mondo.owl: 
+	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/mondo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+
+ontologies/mondo-harrisons-view.owl: 
+	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/mondo-harrisons-view.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/chr.owl: 
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/upheno2.owl: 
-	$(ROBOT) -vv merge -I https://ci.monarchinitiative.org/view/pipelines/job/upheno2/lastSuccessfulBuild/artifact/src/curation/upheno-release/all/upheno_all_with_relations.owl \
+	$(ROBOT) -vv merge -I https://data.monarchinitiative.org/upheno2/current/upheno-release/all/upheno_all_with_relations.owl \
 	remove --term-file src/remove_terms.txt \
 	annotate --link-annotation http://purl.obolibrary.org/obo/IAO_0000700 http://purl.obolibrary.org/obo/UPHENO_0001001 -o $@.tmp.owl && mv $@.tmp.owl $@
 	
