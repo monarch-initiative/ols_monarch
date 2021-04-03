@@ -37,10 +37,10 @@ ontologies/hp.owl:
 	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/hpo-pipeline-dev2/lastSuccessfulBuild/artifact/hp.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/mondo.owl: 
-	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/mondo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/src/ontology/mondo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/mondo-harrisons-view.owl: 
-	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/mondo-harrisons-view.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/src/ontology/modules/mondo-harrisons-view.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/chr.owl: 
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@
