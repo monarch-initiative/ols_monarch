@@ -33,7 +33,7 @@ ontologies: $(ONTFILES)
 ontologies/mondo-issue-%.owl:
 	mkdir -p github && mkdir -p github/mondo-issue-$* && rm -rf github/mondo-issue-$*/*
 	cd github/mondo-issue-$* && git clone --depth 1 https://github.com/monarch-initiative/mondo.git -b issue-$* 
-	$(ROBOT) merge -i github/mondo-issue-$*/mondo/src/ontology/mondo-edit.obo --catalog github/mondo-issue-$*/mondo/src/ontology/catalog-v001.xml reason --reasoner ELK -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) merge -i github/mondo-issue-$*/mondo/src/ontology/mondo-edit.obo --catalog github/mondo-issue-$*/mondo/src/ontology/catalog-v001.xml remove --select ontology reason --reasoner ELK -o $@.tmp.owl && mv $@.tmp.owl $@
 	echo "  - id: mondo-issue-$*" >> ols/ols-config.yaml
 	echo "    preferredPrefix: MONDO_ISSUE_$*" >> ols/ols-config.yaml
 	echo "    title: Mondo Disease Ontology - Issue $* (Developmental Snapshot)" >> ols/ols-config.yaml
