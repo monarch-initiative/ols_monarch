@@ -1,5 +1,5 @@
 URIBASE = http://purl.obolibrary.org/obo
-ONTS = upheno2 geno upheno_patterns hp chr mondo_patterns mondo-harrisons-view mondo
+ONTS = upheno2 geno upheno_patterns hp chr mondo_patterns mondo-harrisons-view mondo mondo-issue-2632
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
 VERSION = "0.0.3" 
@@ -30,6 +30,20 @@ clean:
 
 ontologies: $(ONTFILES)
 
+ontologies/mondo-issue-%.owl:
+	mkdir -p github && mkdir -p github/mondo-issue-$* && rm -rf github/mondo-issue-$*/*
+	cd github/mondo-issue-$* && git clone --depth 1 https://github.com/monarch-initiative/mondo.git -b issue-$* 
+	$(ROBOT) merge -i github/mondo-issue-$*/mondo/src/ontology/mondo-edit.obo --catalog github/mondo-issue-$*/mondo/src/ontology/catalog-v001.xml reason --reasoner ELK -o $@.tmp.owl && mv $@.tmp.owl $@
+	echo "  - id: mondo-issue-$*" >> ols/ols-config.yaml
+	echo "    preferredPrefix: MONDO_ISSUE_$*" >> ols/ols-config.yaml
+	echo "    title: Mondo Disease Ontology - Issue $* (Developmental Snapshot)" >> ols/ols-config.yaml
+	echo "    uri: http://purl.obolibrary.org/obo/mondo/mondo-issue-$*.owl" >> ols/ols-config.yaml
+	echo "    definition_property:" >> ols/ols-config.yaml
+	echo "      - http://purl.obolibrary.org/obo/IAO_0000115" >> ols/ols-config.yaml
+	echo "    reasoner: EL" >> ols/ols-config.yaml
+	echo "    oboSlims: false" >> ols/ols-config.yaml
+	echo "    ontology_purl : file:/opt/ols/$@" >> ols/ols-config.yaml
+
 ontologies/%.owl: 
 	$(ROBOT) convert -I $(URIBASE)/$*.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
@@ -58,3 +72,4 @@ ontologies/mondo_patterns.owl:
 
 #ontologies/monarch.owl:
 #	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/monarch-owl-pipeline/lastSuccessfulBuild/artifact/src/ontology/mo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+
