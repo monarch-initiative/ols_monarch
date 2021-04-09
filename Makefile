@@ -35,8 +35,8 @@ ontologies/mondo-issue-%.owl:
 	mkdir -p github && mkdir -p github/mondo-issue-$* && rm -rf github/mondo-issue-$*/*
 	cd github/mondo-issue-$* && git clone --depth 1 https://github.com/monarch-initiative/mondo.git -b issue-$* 
 	$(ROBOT) merge -i github/mondo-issue-$*/mondo/src/ontology/mondo-edit.obo --catalog github/mondo-issue-$*/mondo/src/ontology/catalog-v001.xml remove --select ontology reason --reasoner ELK -o $@.tmp.owl && mv $@.tmp.owl $@
-	echo "  - id: mondo-issue-$*" >> $(OLSCONFIG)
-	echo "    preferredPrefix: MONDO_ISSUE_$*" >> $(OLSCONFIG)
+	echo "  - id: mondo_issue$*" >> $(OLSCONFIG)
+	echo "    preferredPrefix: MONDO_ISSUE$*" >> $(OLSCONFIG)
 	echo "    title: Mondo Disease Ontology - Issue $* (Developmental Snapshot)" >> $(OLSCONFIG)
 	echo "    uri: http://purl.obolibrary.org/obo/mondo/mondo-issue-$*.owl" >> $(OLSCONFIG)
 	echo "    definition_property:" >> $(OLSCONFIG)
