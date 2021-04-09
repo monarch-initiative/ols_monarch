@@ -38,6 +38,7 @@ RUN mongod --smallfiles --fork --logpath /var/log/mongodb.log \
 ## Preprocess ontologies
 RUN date
 RUN apk add --update make
+RUN apk add --no-cache git
 RUN cd ${OLS_HOME} && make ontologies -B
 
 ## Start MongoDB and SOLR
