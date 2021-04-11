@@ -129,7 +129,7 @@ ontologies:
     reasoner: EL
     oboSlims: false
     ontology_purl : file:/opt/ols/ontologies/chr.owl
-  - id: mondo-issue-2632
+  - id: mondo_issue2632
     preferredPrefix: MONDO_ISSUE_2632
     description: >
       Inofficial development snapshot of the Mondo Disease Ontology. https://github.com/monarch-initiative/mondo/issues/2632
