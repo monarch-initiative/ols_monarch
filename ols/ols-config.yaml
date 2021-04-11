@@ -131,6 +131,8 @@ ontologies:
     ontology_purl : file:/opt/ols/ontologies/chr.owl
   - id: mondo-issue-2632
     preferredPrefix: MONDO_ISSUE_2632
+    description: >
+      Inofficial development snapshot of the Mondo Disease Ontology. https://github.com/monarch-initiative/mondo/issues/2632
     title: Mondo Disease Ontology - Issue 2632 (Developmental Snapshot)
     uri: http://purl.obolibrary.org/obo/mondo/mondo-issue-2632.owl
     definition_property:
