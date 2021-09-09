@@ -62,7 +62,7 @@ ontologies/chr.owl:
 	$(ROBOT) convert -I https://raw.githubusercontent.com/monarch-initiative/monochrom/master/chr.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/upheno2.owl: 
-	$(ROBOT) -vv merge -I https://data.monarchinitiative.org/upheno2/current/upheno-release/all/upheno_all_with_relations.owl \
+	$(ROBOT) -vv merge -I https://bbop-ontologies.s3.amazonaws.com/upheno/current/upheno-release/all/upheno_all_with_relations.owl \
 	remove --term-file src/remove_terms.txt \
 	annotate --link-annotation http://purl.obolibrary.org/obo/IAO_0000700 http://purl.obolibrary.org/obo/UPHENO_0001001 -o $@.tmp.owl && mv $@.tmp.owl $@
 	
