@@ -1,5 +1,5 @@
 URIBASE = http://purl.obolibrary.org/obo
-ONTS = upheno2 geno upheno_patterns hp chr mondo_patterns mondo-harrisons-view mondo mondo-issue-2632 uberon-human-view
+ONTS = upheno2 geno upheno_patterns hp chr mondo_patterns mondo-harrisons-view mondo uberon-human-view
 #monarch
 ONTFILES = $(foreach n, $(ONTS), ontologies/$(n).owl)
 VERSION = "0.0.3" 
