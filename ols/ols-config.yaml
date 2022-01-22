@@ -129,17 +129,6 @@ ontologies:
     reasoner: EL
     oboSlims: false
     ontology_purl : file:/opt/ols/ontologies/chr.owl
-  - id: mondo_issue2632
-    preferredPrefix: MONDO_ISSUE_2632
-    description: >
-      Inofficial development snapshot of the Mondo Disease Ontology. https://github.com/monarch-initiative/mondo/issues/2632
-    title: Mondo Disease Ontology - Issue 2632 (Developmental Snapshot)
-    uri: http://purl.obolibrary.org/obo/mondo/mondo-issue-2632.owl
-    definition_property:
-      - http://purl.obolibrary.org/obo/IAO_0000115
-    reasoner: EL
-    oboSlims: false
-    ontology_purl : file:/opt/ols/ontologies/mondo-issue-2632.owl
   - id: uberon_human_view
     preferredPrefix: UBERON_HUMAN_VIEW
     description: >
