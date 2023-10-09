@@ -50,7 +50,7 @@ ontologies/%.owl:
 	$(ROBOT) convert -I $(URIBASE)/$*.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/hp.owl: 
-	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/hpo-pipeline-dev2/lastSuccessfulBuild/artifact/hp.owl -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) convert -I $(URIBASE)/hp.owl -o $@.tmp.owl && mv $@.tmp.owl $@
 
 ontologies/mondo.owl: 
 	$(ROBOT) convert -I https://ci.monarchinitiative.org/view/pipelines/job/mondo-build/lastSuccessfulBuild/artifact/src/ontology/mondo.owl -o $@.tmp.owl && mv $@.tmp.owl $@
