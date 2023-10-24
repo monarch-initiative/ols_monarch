@@ -1,5 +1,9 @@
 # Monarch OLS
 
+# WARNING THIS REPO IS NO LONGER USED, NOR UPDATED
+
+See https://github.com/monarch-initiative/ontotools-docker instead.
+
 This repository contains the configuration of a bespoke Ontology Lookup Service for the Monarch Initiative. 
 
 ### To launch local in [OLS](https://www.ebi.ac.uk/ols/index) via [Docker](https://www.docker.com/)
